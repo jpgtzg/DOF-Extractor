@@ -27,3 +27,14 @@ if extraordinaria:
         codeList.append(i["codDiario"])
 
 print(codeList)
+
+for i in codeList:
+    diaryEndpoint = f'https://sidofqa.segob.gob.mx/dof/sidof/documentos/pdf/{
+        i}'
+
+    result = requests.get(diaryEndpoint)
+
+    with open('result.pdf', 'wb') as f:
+        for chunk in result.iter_content(2000):
+            f.write(chunk)
+
