@@ -37,4 +37,3 @@ for i in codeList:
     with open('result.pdf', 'wb') as f:
         for chunk in result.iter_content(2000):
             f.write(chunk)
-
