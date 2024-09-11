@@ -8,9 +8,9 @@ from collections import defaultdict
 
 key = ["Fugas", "Registradores", "Telemetría", "Dataloggers", "Eficiencia", "Correlador", "Geófono", "Multicorrelador", "Logger", "Pérdidas", "Recuperación"]
 
-def checkForKeys(code: int, key: list) -> tuple:
+def checkForKeys(code: int) -> tuple:
     lower_keys = [k.lower() for k in key]  # Convert all keys to lowercase
-    foundKeys = defaultdict(int)  # Initialize a defaultdict to count occurrences
+    foundKeys = defaultdict(int)
 
     reader = PdfReader(f'{code}.pdf')
 
@@ -19,10 +19,6 @@ def checkForKeys(code: int, key: list) -> tuple:
 
         for i in lower_keys:
             if i in content:
-                foundKeys[i] += 1  # Increment the count for the key
-
-    print(f'Code {code} has the following keys:')
-    for k, v in foundKeys.items():
-        print(f'{k}: {v}')
+                foundKeys[i] += 1
 
     return (len(foundKeys) > 0, dict(foundKeys))
