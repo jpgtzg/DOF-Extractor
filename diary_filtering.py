@@ -3,7 +3,6 @@
     10 09 2024
 """
 
-import requests
 from pypdf import PdfReader
 from collections import defaultdict
 
