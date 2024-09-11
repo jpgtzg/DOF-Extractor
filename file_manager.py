@@ -4,6 +4,7 @@
 """
 
 import requests
+import os
 
 def getResponse(code :int) -> requests.models.Response:
     diaryEndpoint = f'https://sidofqa.segob.gob.mx/dof/sidof/documentos/pdf/{code}'
@@ -17,3 +18,6 @@ def download(code : int, result : requests.models.Response):
 def downloadAll(codeList : list):
     for i in codeList:
         download(i)
+
+def removeFile(code : int):
+    os.remove(f'{code}.pdf')
