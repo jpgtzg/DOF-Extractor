@@ -22,7 +22,5 @@ def main():
             removeFile(code)
             print(f'Code {code} does not have any keys')
 
-    #downloadAll(codeList)
-
 if __name__ == '__main__':
     main()
