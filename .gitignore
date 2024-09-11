@@ -3,3 +3,4 @@
 algorithms/__pycache__/
 *.pdf
 /.venv/
+.env
