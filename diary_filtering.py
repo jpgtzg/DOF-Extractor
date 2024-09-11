@@ -9,9 +9,8 @@ from collections import defaultdict
 
 key = ["Fugas", "Registradores", "Telemetría", "Dataloggers", "Eficiencia", "Correlador", "Geófono", "Multicorrelador", "Logger", "Pérdidas", "Recuperación"]
 
-
 def checkForKeys(code: int) -> bool:
-    lower_keys = [k.lower() for k in key]  # Convert keys to lowercase
+    lower_keys = [k.lower() for k in key] # Convert all keys to lowercase
     foundKeys = defaultdict(int)  # Initialize a defaultdict to count occurrences
 
     reader = PdfReader(f'{code}.pdf')
