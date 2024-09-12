@@ -4,18 +4,23 @@
 """
 
 import requests
-from datetime import datetime
 
-def getAllCodes() -> list:
-    date = datetime.today().strftime("%d-%m-%Y")
+def getAllCodes(date: str) -> list:
     
     dateEndpoint = f'https://sidofqa.segob.gob.mx/dof/sidof/diarios/porFecha/{
         date}'
     x = requests.get(dateEndpoint).json()
 
-    matutina = x["Matutina"]
-    vespertina = x["Vespertina"]
-    extraordinaria = x["Extraordinaria"]
+    matutina = []
+    vespertina = []
+    extraordinaria = []
+    try:
+        matutina = x["Matutina"]
+        vespertina = x["Vespertina"]
+        extraordinaria = x["Extraordinaria"]
+    except:
+        print("No data found")
+        return []
 
     codeList = list()
 

@@ -13,14 +13,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def send_email(subject : str, body : str, to_email :str, code : int):
+def send_email(subject : str, body : str, to_email : list, code : int):
     from_email = os.getenv("SENDER_EMAIL")
     password = os.getenv("SENDER_PASSWORD")
 
     # Create the email
     msg = MIMEMultipart()
     msg['From'] = from_email
-    msg['To'] = to_email
+    msg['To'] = ", ".join(to_email)
     msg['Subject'] = subject
 
     # Attach the email body
