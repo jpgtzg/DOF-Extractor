@@ -36,8 +36,7 @@ def main(date : str, to_email: list):
         email_body += f"""Código {code} debido a la presencia de las siguientes palabras clave: \n\n"""
 
         for k, v in result[1].items():
-            email_body += f'{k.capitalize()}: {v} ocurrencia(s)\n'
-            email_body += f'Contexto:\n'
+            email_body += f'**{k.capitalize()}**: {v} ocurrencia(s)\n'
             for key, context in result[2]:
                 if key == k:
                     email_body += f'Contexto: {context}\n\n'
