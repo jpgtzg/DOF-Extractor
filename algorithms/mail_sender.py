@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def send_email(subject : str, body : str, to_email : list, code : int):
+def send_email(subject : str, body : str, to_email : list, code : int, date: str):
     from_email = os.getenv("SENDER_EMAIL")
     password = os.getenv("SENDER_PASSWORD")
 
@@ -27,7 +27,7 @@ def send_email(subject : str, body : str, to_email : list, code : int):
     msg.attach(MIMEText(body, 'plain'))
 
     # Attach the PDF file
-    with open(f'{code}.pdf', "rb") as attachment:
+    with open(f'{date}-{code}.pdf', "rb") as attachment:
         part = MIMEBase('application', 'octet-stream')
         part.set_payload(attachment.read())
         encoders.encode_base64(part)

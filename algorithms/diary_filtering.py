@@ -9,12 +9,12 @@ import re
 
 keys = ["Fugas", "Registradores", "Telemetría", "Dataloggers", "Eficiencia", "Correlador", "Geófono", "Multicorrelador", "Logger", "Pérdidas", "Recuperación"]
 
-def checkForKeys(code: int) -> tuple:
+def checkForKeys(code: int, date: str) -> tuple:
     lower_keys = [k.lower() for k in keys]  # Convert all keys to lowercase
     foundKeys = defaultdict(int)
     context_sentences = []
 
-    reader = PdfReader(f'{code}.pdf')
+    reader = PdfReader(f'{date}-{code}.pdf')
 
     for page in reader.pages:
         content = page.extract_text().lower()

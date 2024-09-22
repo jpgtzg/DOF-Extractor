@@ -10,8 +10,8 @@ def getResponse(code :int) -> requests.models.Response:
     diaryEndpoint = f'https://sidofqa.segob.gob.mx/dof/sidof/documentos/pdf/{code}'
     return requests.get(diaryEndpoint, stream=True)
 
-def download(code : int, result : requests.models.Response):
-    with open(f'{code}.pdf', 'wb') as f:
+def download(code : int, result : requests.models.Response, date: str):
+    with open(f'{date}-{code}.pdf', 'wb') as f:
         for chunk in result.iter_content(2000):
             f.write(chunk)
 
