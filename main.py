@@ -50,4 +50,4 @@ if __name__ == '__main__':
     for i in range(360): 
         print(f'Checking for updates on {(datetime.today() - timedelta(days=i)).strftime("%d-%m-%Y")}')
 
-        main(date = (datetime.today() - timedelta(days=i)).strftime("%d-%m-%Y"),  to_email=["test@gmail.com"], check_keys=False)
+        main(date = (datetime.today() - timedelta(days=i)).strftime("%d-%m-%Y"),  to_email=["keynetovarro@gmail.com"], check_keys=False)
